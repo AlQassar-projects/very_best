@@ -5,11 +5,19 @@ class DishesController < ApplicationController
    
      @venues=Venue.all
      
+    @bookmarks = Bookmark.find_by(params[:id])
+    
+    @bookmarks.dish_id = params[:dish_id]
+    @bookmarks.venue_id = params[:venue_id]
+    @bookmarks.user_id = params[:user_id]
+
+
+    save_status = @bookmarks.save
+    
     render("dishes/index.html.erb")
-    
-  
-    
   end
+ 
+  
 
   def show
     @bookmark = Bookmark.new

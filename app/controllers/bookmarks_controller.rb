@@ -38,18 +38,9 @@ class BookmarksController < ApplicationController
 
     save_status = @bookmark.save
 
-    if save_status == true
-      referer = URI(request.referer).path
-
-      case referer
-      when "/bookmarks/new", "/create_bookmark"
-        redirect_to("/bookmarks")
-      else
-        redirect_back(:fallback_location => "/", :notice => "Bookmark created successfully.")
-      end
-    else
+    
       render("bookmarks/new.html.erb")
-    end
+  
   end
 
   def edit
