@@ -109,18 +109,28 @@
         <td>
           <% if dish.cuisine.present? %>
             <a href="/cuisines/<%= dish.cuisine.id %>">
-              <%= dish.cuisine.name %>
-            </a>
+              <%= dish.cuisine.name %> 
+             
+           
+            
           <% end %>
         </td>
         <td>
           <% if dish.specialists.present? %>
           <% dish.specialists.each do |venue| %>
             <a href="/venues/<%= venue.id %>">
-              <%= venue.name %>
-            </a>
-          <% end %>
-          <% end %>
+              <%= venue.name %></a>
+              <% end %>
+              
+          <% else %>
+          
+         
+          <%= select_tag'venue.name', options_for_select(@venues.map{|venue| ["#{venue.name}"]}) %>
+          
+          
+          
+        <%end %>
+       
         </td>
 
         <td>
