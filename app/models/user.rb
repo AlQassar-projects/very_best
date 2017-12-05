@@ -13,6 +13,8 @@ class User < ApplicationRecord
   has_many   :bookmarked_venues,
              :through => :bookmarks,
              :source => :venue
+             
+
 
   # Validations
 

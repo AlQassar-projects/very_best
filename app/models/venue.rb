@@ -40,6 +40,7 @@ class Venue < ApplicationRecord
              :through => :bookmarks,
              :source => :user
 
+
   # Validations
 
   validates :name, :uniqueness => { :scope => [:address_formatted_address], :message => "already exists", :case_sensitive => false }
