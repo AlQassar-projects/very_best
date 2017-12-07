@@ -2,22 +2,11 @@ class DishesController < ApplicationController
   def index
     @q = Dish.ransack(params[:q])
     @dishes = @q.result(:distinct => true).includes(:cuisine, :bookmarks, :fans, :specialists).page(params[:page]).per(10)
-   
-     @venues=Venue.all
-     
-    @bookmarks = Bookmark.find_by(params[:id])
-    
-    @bookmarks.dish_id = params[:dish_id]
-    @bookmarks.venue_id = params[:venue_id]
-    @bookmarks.user_id = params[:user_id]
-
-
-    save_status = @bookmarks.save
-    
-    render("dishes/index.html.erb")
+    @bookmark = Bookmark.new
   end
  
   
+
 
   def show
     @bookmark = Bookmark.new
