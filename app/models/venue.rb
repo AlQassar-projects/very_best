@@ -27,6 +27,10 @@ class Venue < ApplicationRecord
              :dependent => :destroy
 
   # Indirect associations
+  
+  has_many   :dishes,
+             :through => :bookmarks,
+             :source => :dish
 
   has_many   :specialties,
              :through => :bookmarks,
@@ -35,6 +39,7 @@ class Venue < ApplicationRecord
   has_many   :fans,
              :through => :bookmarks,
              :source => :user
+
 
   # Validations
 

@@ -54,7 +54,6 @@
           });
       </script>
 
-
 <div class="form-group">
   <%= "Cuisines" %>
   <% Cuisine.all.each do |cuisine| %>
@@ -107,7 +106,7 @@
             </a>
           <% end %>
         </td>
-        
+
         <td>
           <% if dish.specialists.present? %>
           <% dish.specialists.each do |venue| %>
@@ -142,6 +141,7 @@
               </button>
           </form>
           <% end %>
+
         </td>
         
           <td>
@@ -154,12 +154,9 @@
       <% end %>
     </table>
 
-
     <div>
       <a href="/venues/new" class="btn btn-lg btn-success">Add a new venue</a>
     </div>
-
-
+    
   </div>
 </div>
-

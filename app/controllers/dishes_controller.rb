@@ -4,6 +4,8 @@ class DishesController < ApplicationController
     @dishes = @q.result(:distinct => true).includes(:cuisine, :bookmarks, :fans, :specialists).page(params[:page]).per(10)
     @bookmark = Bookmark.new
   end
+ 
+  
 
 
   def show
